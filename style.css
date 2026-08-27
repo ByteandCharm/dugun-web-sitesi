@@ -1,0 +1,472 @@
+:root {
+    --bg-color: #e5cfc6; /* Soft dusty pink / nude */
+    --text-color: #3d3129; /* Dark brown */
+    --border-color: #c9b1a5; /* Muted pink/brown for borders */
+    
+    --font-primary: 'Playfair Display', serif;
+    --font-script: 'Great Vibes', cursive;
+    --font-secondary: 'Cinzel', serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-primary);
+    overflow: hidden; /* We will handle scrolling in the container */
+    -webkit-font-smoothing: antialiased;
+    /* Add a subtle noise texture */
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)" opacity="0.05"/></svg>');
+}
+
+.app-container {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    height: 100vh;
+    height: 100dvh;
+    margin: 0 auto;
+    background-color: var(--bg-color);
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+/* Sabit Çerçeve */
+.fixed-frame {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    z-index: 10;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Arch Border */
+.arch-border {
+    position: absolute;
+    top: 60px; /* Leave space for top lace and Invitely */
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 120px 120px 0 0;
+    box-shadow: inset 0 0 10px rgba(255,255,255,0.2), 0 0 10px rgba(255,255,255,0.2);
+}
+.arch-border::after {
+    content: '';
+    position: absolute;
+    top: -4px; left: -4px; right: -4px; bottom: -4px;
+    border: 1px solid rgba(201, 177, 165, 0.4);
+    border-radius: 124px 124px 0 0;
+}
+
+.brand {
+    position: absolute;
+    top: 25px;
+    font-family: var(--font-primary);
+    font-size: 0.8rem;
+    font-style: italic;
+    letter-spacing: 1px;
+    color: var(--border-color);
+}
+
+/* Dantel Efektleri (Lace) */
+.lace {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 20;
+    opacity: 0.85;
+}
+.lace-top-left {
+    top: -20px; 
+    left: -20px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3Cfilter id='f' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeDropShadow dx='1' dy='1' stdDeviation='1' flood-opacity='0.1'/%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23f)' fill='%23ffffff' opacity='0.9'%3E%3Cpath d='M0,0 L100,0 C100,0 90,10 85,25 C80,40 90,55 85,70 C80,85 55,75 40,85 C25,95 20,100 0,100 Z' opacity='0.4'/%3E%3Cpath d='M0,0 L80,0 C75,15 65,20 60,35 C55,50 65,65 50,75 C35,85 15,75 0,80 Z' opacity='0.6'/%3E%3Ccircle cx='10' cy='10' r='5'/%3E%3Ccircle cx='30' cy='15' r='4'/%3E%3Ccircle cx='15' cy='30' r='4'/%3E%3Ccircle cx='50' cy='25' r='3'/%3E%3Ccircle cx='25' cy='50' r='3'/%3E%3Ccircle cx='70' cy='45' r='2.5'/%3E%3Ccircle cx='45' cy='70' r='2.5'/%3E%3Cpath d='M10,10 Q30,40 50,20' fill='none' stroke='%23ffffff' stroke-width='1.5'/%3E%3Cpath d='M10,10 Q40,30 20,50' fill='none' stroke='%23ffffff' stroke-width='1.5'/%3E%3Cpath d='M30,15 Q50,45 70,45' fill='none' stroke='%23ffffff' stroke-width='1'/%3E%3Cpath d='M15,30 Q45,50 45,70' fill='none' stroke='%23ffffff' stroke-width='1'/%3E%3C/g%3E%3C/svg%3E");
+}
+.lace-bottom-right {
+    bottom: -20px; 
+    right: -20px;
+    transform: rotate(180deg);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3Cfilter id='f' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeDropShadow dx='1' dy='1' stdDeviation='1' flood-opacity='0.1'/%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23f)' fill='%23ffffff' opacity='0.9'%3E%3Cpath d='M0,0 L100,0 C100,0 90,10 85,25 C80,40 90,55 85,70 C80,85 55,75 40,85 C25,95 20,100 0,100 Z' opacity='0.4'/%3E%3Cpath d='M0,0 L80,0 C75,15 65,20 60,35 C55,50 65,65 50,75 C35,85 15,75 0,80 Z' opacity='0.6'/%3E%3Ccircle cx='10' cy='10' r='5'/%3E%3Ccircle cx='30' cy='15' r='4'/%3E%3Ccircle cx='15' cy='30' r='4'/%3E%3Ccircle cx='50' cy='25' r='3'/%3E%3Ccircle cx='25' cy='50' r='3'/%3E%3Ccircle cx='70' cy='45' r='2.5'/%3E%3Ccircle cx='45' cy='70' r='2.5'/%3E%3Cpath d='M10,10 Q30,40 50,20' fill='none' stroke='%23ffffff' stroke-width='1.5'/%3E%3Cpath d='M10,10 Q40,30 20,50' fill='none' stroke='%23ffffff' stroke-width='1.5'/%3E%3Cpath d='M30,15 Q50,45 70,45' fill='none' stroke='%23ffffff' stroke-width='1'/%3E%3Cpath d='M15,30 Q45,50 45,70' fill='none' stroke='%23ffffff' stroke-width='1'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+
+/* Scrollable Container */
+.scroll-container {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    z-index: 5;
+    /* Hide scrollbar */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+.section {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 80px 40px; /* keep content inside arch */
+}
+
+/* Bölüm 1: Ana Ekran */
+.hero-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    animation: fadeIn 1.5s ease-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 150px;
+}
+.divider .line {
+    flex: 1;
+    height: 1px;
+    background-color: var(--border-color);
+}
+.divider .dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--border-color);
+    border-radius: 50%;
+}
+.divider .star {
+    font-size: 14px;
+    color: var(--border-color);
+    line-height: 1;
+}
+
+.names {
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    margin: 10px 0;
+}
+.name {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+}
+.ampersand {
+    font-family: var(--font-script);
+    font-size: 2.2rem;
+    color: var(--border-color);
+}
+
+.scroll-down-btn {
+    position: absolute;
+    bottom: 50px;
+    padding: 12px 30px;
+    border: 1px solid rgba(201, 177, 165, 0.6);
+    border-radius: 30px;
+    background-color: rgba(229, 207, 198, 0.5);
+    backdrop-filter: blur(5px);
+    color: var(--text-color);
+    font-family: var(--font-secondary);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    z-index: 30; /* Over lace if necessary */
+}
+.scroll-down-btn:active {
+    transform: scale(0.95);
+}
+
+/* Genel Başlık Stili */
+.section-subtitle {
+    font-family: var(--font-secondary);
+    font-size: 0.9rem;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+    color: var(--text-color);
+}
+
+/* Bölüm 2: Tarih */
+.date-content {
+    text-align: center;
+    width: 100%;
+}
+
+.main-date-plaque {
+    width: 100%;
+    max-width: 260px;
+    margin: 0 auto 20px;
+    border: 2px solid var(--border-color);
+    padding: 6px;
+    border-radius: 10px; 
+    clip-path: polygon(15px 0, calc(100% - 15px) 0, 100% 15px, 100% calc(100% - 15px), calc(100% - 15px) 100%, 15px 100%, 0 calc(100% - 15px), 0 15px);
+    background-color: rgba(255,255,255,0.15);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.plaque-inner {
+    border: 1px solid var(--border-color);
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    clip-path: polygon(12px 0, calc(100% - 12px) 0, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px), 0 12px);
+}
+
+.date-day { font-size: 5rem; line-height: 1; }
+.date-month { font-family: var(--font-secondary); font-size: 1.2rem; letter-spacing: 5px; }
+.date-dot { font-size: 0.6rem; color: var(--border-color); }
+.date-year { font-family: var(--font-secondary); font-size: 1.1rem; letter-spacing: 3px; font-weight: 600; }
+
+.sub-date-plaques {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+.small-plaque {
+    border: 1px solid var(--border-color);
+    padding: 4px;
+    background-color: rgba(255,255,255,0.15);
+    clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px), 0 10px);
+}
+.small-plaque .plaque-inner {
+    padding: 15px;
+    font-family: var(--font-secondary);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    min-width: 120px;
+    clip-path: polygon(8px 0, calc(100% - 8px) 0, 100% 8px, 100% calc(100% - 8px), calc(100% - 8px) 100%, 8px 100%, 0 calc(100% - 8px), 0 8px);
+}
+
+/* Bölüm 3: Aileler */
+.family-content {
+    text-align: center;
+    width: 100%;
+}
+.family-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+.family-plaque {
+    width: 100%;
+    max-width: 260px;
+    border: 1px solid var(--border-color);
+    padding: 4px;
+    background-color: rgba(255,255,255,0.15);
+    clip-path: polygon(12px 0, calc(100% - 12px) 0, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px), 0 12px);
+}
+.family-plaque .plaque-inner {
+    padding: 20px;
+    clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px), 0 10px);
+}
+.family-name {
+    font-family: var(--font-secondary);
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+.parents {
+    font-family: var(--font-primary);
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+
+/* Bölüm 4: Konum */
+.location-content {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.map-plaque-outer {
+    width: 100%;
+    max-width: 280px;
+    height: 250px;
+    margin: 0 auto 20px;
+    border: 2px solid var(--border-color);
+    padding: 6px;
+    border-radius: 10px;
+    clip-path: polygon(20px 0, calc(100% - 20px) 0, 100% 20px, 100% calc(100% - 20px), calc(100% - 20px) 100%, 20px 100%, 0 calc(100% - 20px), 0 20px);
+    background-color: rgba(255,255,255,0.15);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.map-plaque-inner {
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--border-color);
+    clip-path: polygon(16px 0, calc(100% - 16px) 0, 100% 16px, 100% calc(100% - 16px), calc(100% - 16px) 100%, 16px 100%, 0 calc(100% - 16px), 0 16px);
+    background-color: #e5cfc6; 
+}
+
+.map-plaque-inner iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.venue-plaque {
+    border: 1px solid var(--border-color);
+    padding: 4px;
+    background-color: rgba(255,255,255,0.15);
+    clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px), 0 10px);
+    margin-bottom: 20px;
+}
+.venue-plaque .plaque-inner {
+    padding: 12px 25px;
+    font-family: var(--font-primary);
+    font-size: 1.1rem;
+    clip-path: polygon(8px 0, calc(100% - 8px) 0, 100% 8px, 100% calc(100% - 8px), calc(100% - 8px) 100%, 8px 100%, 0 calc(100% - 8px), 0 8px);
+}
+
+.venue-address {
+    font-family: var(--font-primary);
+    font-size: 0.85rem;
+    max-width: 250px;
+    margin: 0 auto 25px;
+    color: var(--text-color);
+}
+
+.btn-location {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 25px;
+    border: 1px solid var(--border-color);
+    border-radius: 30px;
+    background-color: rgba(229, 207, 198, 0.4);
+    color: var(--text-color);
+    text-decoration: none;
+    font-family: var(--font-secondary);
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    transition: all 0.3s;
+    backdrop-filter: blur(5px);
+}
+.btn-location svg {
+    width: 16px;
+    height: 16px;
+}
+.btn-location:active {
+    transform: scale(0.95);
+    background-color: rgba(229, 207, 198, 0.8);
+}
+
+/* Bölüm 5: Geri Sayım */
+.countdown-content {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.countdown-main {
+    margin-bottom: 25px;
+}
+.countdown-number {
+    font-size: 6rem;
+    line-height: 1;
+    font-family: var(--font-primary);
+    color: var(--text-color);
+    margin-bottom: -5px;
+}
+.countdown-label {
+    font-family: var(--font-secondary);
+    font-size: 1.2rem;
+    letter-spacing: 5px;
+}
+
+.countdown-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cd-num {
+    font-size: 2.2rem;
+    font-family: var(--font-primary);
+    line-height: 1;
+}
+.cd-label {
+    font-family: var(--font-secondary);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    margin-top: 5px;
+}
+.cd-colon {
+    font-size: 2rem;
+    font-family: var(--font-primary);
+    margin-top: -20px;
+}
+
+.quote-text {
+    font-family: var(--font-primary);
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    max-width: 280px;
+}
+
+/* Music Button */
+.music-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(61, 49, 41, 0.8);
+    color: #fff;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 30;
+    transition: transform 0.2s;
+}
+.music-btn svg { width: 18px; height: 18px; }
+.music-btn:active { transform: scale(0.9); }
