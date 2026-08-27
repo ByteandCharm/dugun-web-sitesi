@@ -483,3 +483,12 @@ body {
     color: var(--text-color);
     opacity: 0.85;
 }
+.footer-invite {
+    margin-top: 20px;
+    font-family: var(--font-primary);
+    font-style: italic;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    color: var(--text-color);
+    opacity: 0.9;
+}
