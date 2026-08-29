@@ -485,11 +485,17 @@ body {
 }
 .family-row {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 4px;
+    gap: 18px;
     margin-top: 15px;
+}
+.family-vline {
+    width: 1px;
+    height: 42px;
+    background-color: #e9c46a;
+    opacity: 0.85;
 }
 .family-plaque-box {
     width: 100%;
