@@ -618,15 +618,9 @@ body {
 .music-btn svg { width: 18px; height: 18px; }
 .music-btn:active { transform: scale(0.9); }
 
-/* Gizli YouTube Çalar */
-#yt-player {
-    position: absolute;
-    width: 0;
-    height: 0;
-    overflow: hidden;
-    opacity: 0;
-    pointer-events: none;
-    z-index: -1;
+/* Yerel Müzik Çalar */
+#bg-music {
+    display: none;
 }
 
 /* Footer (Son Sayfa) */
