@@ -465,9 +465,10 @@ body {
 }
 .family-couple {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: 4px;
     margin-bottom: 18px;
 }
 .family-couple .fc-name {
@@ -484,10 +485,11 @@ body {
 }
 .family-row {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 18px;
-    margin-top: 10px;
+    gap: 4px;
+    margin-top: 15px;
 }
 .family-row .family-name {
     margin-bottom: 0;
