@@ -518,13 +518,19 @@ body {
     width: 100%;
     max-width: 340px;
     margin: 0 auto;
-    padding: 0;
+    padding: 25px 20px;
     border: none;
     outline: none;
-    border-radius: 0;
-    background: transparent;
+    border-radius: 16px;
+    background: rgba(0,0,0,0.42);
     box-shadow: none;
-    backdrop-filter: none;
+    backdrop-filter: blur(2px);
+}
+.family-section .fc-name,
+.family-section .family-name,
+.family-section .family-quote,
+.family-section .section-subtitle {
+    text-shadow: 0 2px 10px rgba(0,0,0,0.6);
 }
 .family-content {
     width: 100%;
