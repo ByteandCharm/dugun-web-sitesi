@@ -129,14 +129,74 @@ body {
     padding: 80px 40px; /* keep content inside arch */
 }
 
-/* Bölüm 1: Ana Ekran */
+/* Bölüm 1: Ana Ekran (Kapak Fotoğrafı Teması) */
+.hero-section {
+    padding: 0;
+    overflow: hidden;
+}
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    animation: heroZoom 12s ease-out;
+}
+@keyframes heroZoom {
+    from { transform: scale(1.08); }
+    to { transform: scale(1); }
+}
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(
+        180deg,
+        rgba(40, 28, 20, 0.45) 0%,
+        rgba(40, 28, 20, 0.20) 40%,
+        rgba(40, 28, 20, 0.55) 100%
+    );
+}
 .hero-content {
+    position: relative;
+    z-index: 3;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 15px;
     animation: fadeIn 1.5s ease-out;
+    padding: 0 30px;
+}
+.hero-section .name {
+    color: #fdf6ec;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.45);
+}
+.hero-section .ampersand {
+    color: #e9c46a;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+.hero-section .divider .line,
+.hero-section .divider .dot,
+.hero-section .divider .star {
+    background-color: #e9c46a;
+    color: #e9c46a;
+}
+.hero-date {
+    margin-top: 10px;
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    letter-spacing: 5px;
+    color: #fdf6ec;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+.hero-section .scroll-down-btn {
+    z-index: 30;
+    border-color: rgba(233, 196, 106, 0.7);
+    background-color: rgba(40, 28, 20, 0.4);
+    backdrop-filter: blur(5px);
+    color: #fdf6ec;
 }
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
@@ -213,6 +273,93 @@ body {
     letter-spacing: 4px;
     margin-bottom: 30px;
     color: var(--text-color);
+}
+
+/* Genel Bölüm Arka Planı (Fotoğraf Teması) */
+.section-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+.section-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(
+        180deg,
+        rgba(40, 28, 20, 0.55) 0%,
+        rgba(40, 28, 20, 0.45) 50%,
+        rgba(40, 28, 20, 0.65) 100%
+    );
+}
+
+/* Fotoğraflı bölümlerde yazı/çerçeve renkleri (beyaz + altın) */
+.date-section .section-subtitle,
+.family-section .section-subtitle,
+.location-content .section-subtitle,
+.countdown-section .section-subtitle {
+    color: #fdf6ec;
+}
+.date-section .main-date-plaque,
+.date-section .small-plaque,
+.family-section .family-plaque,
+.location-section .venue-plaque,
+.location-section .map-plaque-outer {
+    border-color: rgba(233, 196, 106, 0.8);
+    background-color: rgba(40, 28, 20, 0.35);
+}
+.date-section .plaque-inner,
+.family-section .plaque-inner,
+.location-section .venue-plaque .plaque-inner {
+    border-color: rgba(233, 196, 106, 0.6);
+}
+.date-section .date-day,
+.date-section .date-month,
+.date-section .date-year,
+.date-section .date-dot,
+.date-section .small-plaque .plaque-inner,
+.family-section .family-name,
+.family-section .parents,
+.location-section .venue-plaque .plaque-inner,
+.location-section .venue-address,
+.countdown-section .countdown-number,
+.countdown-section .countdown-label,
+.countdown-section .cd-num,
+.countdown-section .cd-colon,
+.countdown-section .cd-label,
+.countdown-section .quote-text {
+    color: #fdf6ec;
+}
+.location-section .map-plaque-inner {
+    background-color: rgba(40, 28, 20, 0.35);
+}
+
+/* Son Sayfa yazı renkleri */
+.footer-section .name {
+    color: #fdf6ec;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.45);
+}
+.footer-section .ampersand {
+    color: #e9c46a;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+.footer-section .divider .line,
+.footer-section .divider .dot,
+.footer-section .divider .star {
+    background-color: #e9c46a;
+    color: #e9c46a;
+}
+.footer-section .footer-date,
+.footer-section .footer-invite {
+    color: #fdf6ec;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+.date-content, .family-content, .location-content, .countdown-content {
+    position: relative;
+    z-index: 3;
 }
 
 /* Bölüm 2: Tarih */
