@@ -512,18 +512,17 @@ body {
     margin-bottom: 0;
 }
 .family-vline {
-    width: 1px;
-    height: 42px;
-    background-color: #e9c46a;
-    opacity: 0.85;
+    display: none;
 }
 .family-plaque-box {
     width: 100%;
     max-width: 320px;
     margin: 0 auto;
     padding: 35px 25px;
-    border: 1px solid rgba(233, 196, 106, 0.8);
+    border: 1px solid rgba(233, 196, 106, 0.85);
     border-radius: 14px;
+    outline: 1px solid rgba(233, 196, 106, 0.45);
+    outline-offset: -7px;
     background-color: rgba(40, 28, 20, 0.40);
     box-shadow: 0 8px 24px rgba(0,0,0,0.25);
     backdrop-filter: blur(3px);
