@@ -1,7 +1,7 @@
 :root {
-    --bg-color: #e5cfc6; /* Soft dusty pink / nude */
-    --text-color: #3d3129; /* Dark brown */
-    --border-color: #c9b1a5; /* Muted pink/brown for borders */
+    --bg-color: #e3ebe2; /* Soft sage / yeşil uyumlu */
+    --text-color: #20381f; /* Koyu yeşil-kahve */
+    --border-color: #2c6c35; /* Yaprak yeşili */
     
     --font-primary: 'Playfair Display', serif;
     --font-script: 'Great Vibes', cursive;
@@ -153,9 +153,9 @@ body {
     z-index: 2;
     background: linear-gradient(
         180deg,
-        rgba(40, 28, 20, 0.45) 0%,
-        rgba(40, 28, 20, 0.20) 40%,
-        rgba(40, 28, 20, 0.55) 100%
+        rgba(44, 108, 53, 0.45) 0%,
+        rgba(44, 108, 53, 0.20) 40%,
+        rgba(44, 108, 53, 0.55) 100%
     );
 }
 .hero-content {
@@ -194,7 +194,7 @@ body {
 .hero-section .scroll-down-btn {
     z-index: 30;
     border-color: rgba(233, 196, 106, 0.7);
-    background-color: rgba(40, 28, 20, 0.4);
+    background-color: rgba(44, 108, 53, 0.4);
     backdrop-filter: blur(5px);
     color: #fdf6ec;
 }
@@ -290,9 +290,9 @@ body {
     z-index: 2;
     background: linear-gradient(
         180deg,
-        rgba(40, 28, 20, 0.55) 0%,
-        rgba(40, 28, 20, 0.45) 50%,
-        rgba(40, 28, 20, 0.65) 100%
+        rgba(44, 108, 53, 0.55) 0%,
+        rgba(44, 108, 53, 0.45) 50%,
+        rgba(44, 108, 53, 0.65) 100%
     );
 }
 
@@ -309,7 +309,7 @@ body {
 .location-section .venue-plaque,
 .location-section .map-plaque-outer {
     border-color: rgba(233, 196, 106, 0.8);
-    background-color: rgba(40, 28, 20, 0.35);
+    background-color: rgba(44, 108, 53, 0.35);
 }
 .date-section .plaque-inner,
 .family-section .plaque-inner,
@@ -334,7 +334,7 @@ body {
     color: #fdf6ec;
 }
 .location-section .map-plaque-inner {
-    background-color: rgba(40, 28, 20, 0.35);
+    background-color: rgba(44, 108, 53, 0.35);
 }
 
 /* Son Sayfa yazı renkleri */
@@ -479,7 +479,7 @@ body {
     height: 100%;
     border: 1px solid var(--border-color);
     clip-path: polygon(16px 0, calc(100% - 16px) 0, 100% 16px, 100% calc(100% - 16px), calc(100% - 16px) 100%, 16px 100%, 0 calc(100% - 16px), 0 16px);
-    background-color: #e5cfc6; 
+    background-color: #e3ebe2; 
 }
 
 .map-plaque-inner iframe {
