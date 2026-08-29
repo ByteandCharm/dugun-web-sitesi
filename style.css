@@ -499,20 +499,23 @@ body {
 }
 .family-row {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: 18px;
     margin-top: 18px;
 }
 .family-row .family-name {
-    flex: none;
-    min-width: 0;
+    flex: 1 1 0;
+    min-width: 120px;
     text-align: center;
     margin-bottom: 0;
 }
 .family-vline {
-    display: none;
+    width: 1px;
+    height: 42px;
+    background-color: #e9c46a;
+    opacity: 0.85;
 }
 .family-plaque-box {
     width: 100%;
