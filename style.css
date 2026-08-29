@@ -153,9 +153,9 @@ body {
     z-index: 2;
     background: linear-gradient(
         180deg,
-        rgba(40, 28, 20, 0.45) 0%,
-        rgba(40, 28, 20, 0.20) 40%,
-        rgba(40, 28, 20, 0.55) 100%
+        rgba(20, 20, 20, 0.30) 0%,
+        rgba(20, 20, 20, 0.10) 45%,
+        rgba(20, 20, 20, 0.45) 100%
     );
 }
 .hero-content {
@@ -290,9 +290,9 @@ body {
     z-index: 2;
     background: linear-gradient(
         180deg,
-        rgba(40, 28, 20, 0.55) 0%,
-        rgba(40, 28, 20, 0.45) 50%,
-        rgba(40, 28, 20, 0.65) 100%
+        rgba(20, 20, 20, 0.35) 0%,
+        rgba(20, 20, 20, 0.20) 50%,
+        rgba(20, 20, 20, 0.48) 100%
     );
 }
 
@@ -309,7 +309,7 @@ body {
 .location-section .venue-plaque,
 .location-section .map-plaque-outer {
     border-color: rgba(233, 196, 106, 0.8);
-    background-color: rgba(40, 28, 20, 0.35);
+    background-color: rgba(20, 20, 20, 0.30);
 }
 .date-section .plaque-inner,
 .family-section .plaque-inner,
@@ -334,7 +334,7 @@ body {
     color: #fdf6ec;
 }
 .location-section .map-plaque-inner {
-    background-color: rgba(40, 28, 20, 0.35);
+    background-color: rgba(20, 20, 20, 0.30);
 }
 
 /* Son Sayfa yazı renkleri */
