@@ -491,6 +491,28 @@ body {
     gap: 4px;
     margin-top: 15px;
 }
+.family-plaque-box {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    padding: 35px 25px;
+    border: 1px solid rgba(233, 196, 106, 0.8);
+    border-radius: 14px;
+    background-color: rgba(40, 28, 20, 0.40);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    backdrop-filter: blur(3px);
+}
+.family-plaque-box .divider {
+    margin: 22px 0;
+}
+.family-plaque-box .divider .line {
+    background-color: #e9c46a;
+}
+.family-plaque-box .divider .dot,
+.family-plaque-box .divider .star {
+    background-color: #e9c46a;
+    color: #e9c46a;
+}
 .family-row .family-name {
     margin-bottom: 0;
     font-size: 1.5rem;
