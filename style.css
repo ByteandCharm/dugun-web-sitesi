@@ -357,6 +357,19 @@ body {
     color: #fdf6ec;
     text-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
+.infinity-symbol {
+    margin-top: 20px;
+    font-family: var(--font-script);
+    font-size: 4.5rem;
+    line-height: 1;
+    color: #e9c46a;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.45);
+    animation: infinityPulse 3s ease-in-out infinite;
+}
+@keyframes infinityPulse {
+    0%, 100% { opacity: 0.75; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.08); }
+}
 .date-content, .family-content, .location-content, .countdown-content {
     position: relative;
     z-index: 3;
