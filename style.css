@@ -463,6 +463,25 @@ body {
     font-size: 1.1rem;
     font-style: italic;
 }
+.family-couple {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+.family-couple .fc-name {
+    font-family: var(--font-primary);
+    font-size: 2rem;
+    color: #fdf6ec;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+.family-couple .fc-amp {
+    font-family: var(--font-script);
+    font-size: 1.9rem;
+    color: #e9c46a;
+    line-height: 1;
+}
 .family-row {
     display: flex;
     align-items: center;
