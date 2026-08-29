@@ -469,7 +469,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 0;
-    margin-bottom: 18px;
+    margin-bottom: 22px;
 }
 .family-couple .fc-name {
     font-family: var(--font-primary);
@@ -483,13 +483,27 @@ body {
     color: #e9c46a;
     line-height: 1;
 }
+.family-quote {
+    margin: 0 auto;
+    font-family: var(--font-primary);
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.5;
+    max-width: 280px;
+    text-align: center;
+    color: #fdf6ec;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+}
+.family-plaque-box .section-subtitle {
+    margin-top: 40px;
+}
 .family-row {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 18px;
-    margin-top: 15px;
+    margin-top: 18px;
 }
 .family-vline {
     width: 1px;
