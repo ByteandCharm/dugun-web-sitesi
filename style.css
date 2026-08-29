@@ -519,21 +519,21 @@ body {
 }
 .family-plaque-box {
     width: 100%;
-    max-width: 320px;
+    max-width: 340px;
     margin: 0 auto;
-    padding: 30px 20px;
+    padding: 0;
     border: none;
     outline: none;
-    border-radius: 14px;
-    background-color: rgba(40, 28, 20, 0.40);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-    backdrop-filter: blur(3px);
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
 }
 .family-content {
     width: 100%;
-    border: 1px solid rgba(233, 196, 106, 0.75);
-    border-radius: 12px;
-    padding: 22px 16px;
+    border: none;
+    border-radius: 0;
+    padding: 0;
 }
 .family-plaque-box .divider {
     margin: 22px 0;
