@@ -505,6 +505,12 @@ body {
     gap: 18px;
     margin-top: 18px;
 }
+.family-row .family-name {
+    flex: 1 1 0;
+    min-width: 120px;
+    text-align: center;
+    margin-bottom: 0;
+}
 .family-vline {
     width: 1px;
     height: 42px;
