@@ -235,8 +235,7 @@ body {
     margin: 10px 0;
 }
 .name {
-    font-family: var(--font-script);
-    font-size: 4rem;
+    font-size: 3.5rem;
     line-height: 1.1;
     text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
 }
@@ -453,10 +452,10 @@ body {
     clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px), 0 10px);
 }
 .family-name {
-    font-family: var(--font-script);
-    font-size: 2rem;
-    letter-spacing: 1px;
-    margin-bottom: 8px;
+    font-family: var(--font-secondary);
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
     color: var(--text-color);
 }
 .parents {
