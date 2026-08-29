@@ -465,10 +465,10 @@ body {
 }
 .family-couple {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 4px;
+    gap: 0;
     margin-bottom: 18px;
 }
 .family-couple .fc-name {
