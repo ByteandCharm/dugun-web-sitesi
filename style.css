@@ -450,6 +450,16 @@ body {
     font-size: 1.1rem;
     font-style: italic;
 }
+.family-quote {
+    margin-top: 25px;
+    font-family: var(--font-primary);
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.5;
+    max-width: 280px;
+    color: #fdf6ec;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+}
 
 
 /* Bölüm 4: Konum */
