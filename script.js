@@ -13,21 +13,65 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Müzik Oynatıcı (Basit Örnek)
+    // 2. Müzik Oynatıcı (YouTube: Mahmut Orhan - Feel feat. Sena Sener)
     const musicBtn = document.getElementById('music-btn');
+    let ytPlayer = null;
+    let ytReady = false;
     let isPlaying = false;
-    
-    if (musicBtn) {
-        musicBtn.addEventListener('click', () => {
-            isPlaying = !isPlaying;
-            if (isPlaying) {
-                musicBtn.style.backgroundColor = 'rgba(201, 177, 165, 0.9)'; 
-                // Buraya gerçek müzik başlatma kodu eklenebilir
-            } else {
-                musicBtn.style.backgroundColor = 'rgba(61, 49, 41, 0.8)';
-                // Buraya müzik durdurma kodu eklenebilir
+
+    // YouTube IFrame API yüklendiğinde çağrılır
+    window.onYouTubeIframeAPIReady = function () {
+        ytPlayer = new YT.Player('yt-player', {
+            height: '0',
+            width: '0',
+            videoId: 'rQ7tMWOCQlM',
+            playerVars: {
+                start: 40,          // 0:40 saniyeden başla
+                autoplay: 0,
+                controls: 0,
+                disablekb: 1,
+                fs: 0,
+                rel: 0,
+                modestbranding: 1,
+                playsinline: 1
+            },
+            events: {
+                onReady: function (e) {
+                    ytReady = true;
+                    e.target.setVolume(30); // %30 ses
+                }
             }
         });
+    };
+
+    // API script'ini yükle (eğer sayfa tarafından eklenmemişse)
+    if (typeof YT === 'undefined' || !YT.Player) {
+        const tag = document.createElement('script');
+        tag.src = 'https://www.youtube.com/iframe_api';
+        const first = document.getElementsByTagName('script')[0];
+        first.parentNode.insertBefore(tag, first);
+    }
+
+    function toggleMusic() {
+        if (!ytReady || !ytPlayer || !ytPlayer.getPlayerState) return;
+        const state = ytPlayer.getPlayerState();
+        if (state === 1) { // çalıyor
+            ytPlayer.pauseVideo();
+            isPlaying = false;
+            musicBtn.style.backgroundColor = 'rgba(61, 49, 41, 0.8)';
+        } else {
+            if (state === 5 || state === 0) {
+                ytPlayer.seekTo(40, true); // 0:40'a git
+            }
+            ytPlayer.setVolume(30);
+            ytPlayer.playVideo();
+            isPlaying = true;
+            musicBtn.style.backgroundColor = 'rgba(201, 177, 165, 0.9)';
+        }
+    }
+
+    if (musicBtn) {
+        musicBtn.addEventListener('click', toggleMusic);
     }
 
     // 3. Geri Sayım Mantığı
